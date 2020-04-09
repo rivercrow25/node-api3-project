@@ -33,7 +33,7 @@ router.get('/', (req, res) => {
     })
 });
 
-router.get('/:id', validateUserId, validateUser, (req, res) => {
+router.get('/:id', validateUserId, (req, res) => {
   userDb.getById(req.params.id)
     .then(user => {
       res.status(200).json(user)
