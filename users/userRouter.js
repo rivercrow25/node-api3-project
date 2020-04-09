@@ -64,7 +64,7 @@ router.delete('/:id', validateUserId, (req, res) => {
 });
 
 router.put('/:id', validateUser, validateUserId, (req, res) => {
-  userDb.update(req.params.user, req.body)
+  userDb.update(req.params.id, req.body)
     .then(newUser => {
       res.status(200).json(newUser)
     })
