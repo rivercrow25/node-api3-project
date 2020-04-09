@@ -35,7 +35,13 @@ router.delete('/:id', validatePostId, (req, res) => {
 });
 
 router.put('/:id', validatePostId, (req, res) => {
-  // do your magic!
+  db.update(req.params.id, req.body)
+    .then(newPost => {
+      res.status(200).json(newPost)
+    })
+    .catch(() => {
+      res.status(500).json({ message: 'Error could not update post' })
+    })
 });
 
 // custom middleware
